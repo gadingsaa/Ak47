@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next';
 import { GraphQLClient, gql } from 'graphql-request';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const endpoint = "https://www.terkini360.xyz/graphql"
+	const endpoint = process.env.GRAPHQL_ENDPOINT as string;
 	const graphQLClient = new GraphQLClient(endpoint);
 	const referringURL = ctx.req.headers?.referer || null;
 	const pathArr = ctx.query.postpath as Array<string>;
@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			redirect: {
 				permanent: false,
 				destination: `${
-					`https://www.terkini360.xyz/` + encodeURI(path as string)
+					endpoint.replace(/(\/graphql\/)/, '/') + encodeURI(path as string)
 				}`,
 			},
 		};
@@ -85,7 +85,7 @@ const Post: React.FC<PostProps> = (props) => {
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content={host.split('.')[0]} />
-  <meta property="og:image" content={featuredImage.node.sourceUrl} />
+  <meta property="og:image" content={post.featuredImage.node.sourceUrl} />
   <meta property="og:image:alt" content={post.featuredImage.node.altText || ""} />
 </Head>
 
@@ -93,7 +93,7 @@ const Post: React.FC<PostProps> = (props) => {
 				<h1>{post.title}</h1>
 				<img
 					src={post.featuredImage.node.sourceUrl}
-					alt={post.featuredImage.node.}
+					alt={post.featuredImage.node.altText || post.title}
 				/>
 				<article dangerouslySetInnerHTML={{ __html: post.content }} />
 			</div>
