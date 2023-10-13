@@ -82,19 +82,13 @@ const Post: React.FC<PostProps> = (props) => {
 	return (
 		<>
 			<Head>
-				<meta property="og:title" content={removePost.removeTitle} />
-				<link rel="canonical" href={`https://${host}/${path}`} />
-				<meta property="og:description" content={removeTags.removePost.removeExcerpt} />
-				<meta property="og:url" content={`https://${host}/${path}`} />
-				<meta property="og:type" content="artikel" />
-				<meta property="og:locale" content="en_US" />
-				<meta property="og:site_name" content={host.split('.')[0]} />
-				<meta property="og:image" content={featuredImage.node.sourceUrl} />
-				<meta
-					property="og:image:alt"
-					content={post.featuredImage.node.}
-				/>
-			</Head>
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content={host.split('.')[0]} />
+  <meta property="og:image" content={featuredImage.node.sourceUrl} />
+  <meta property="og:image:alt" content={post.featuredImage.node.altText || ""} />
+</Head>
+
 			<div className="post-container">
 				<h1>{post.title}</h1>
 				<img
