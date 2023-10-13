@@ -104,7 +104,11 @@ const Post: React.FC<PostProps> = (props) => {
         <meta property="og:site_name" content="Terkini360 XYZ" />
         <meta
           property="og:description"
-          content="Chiropractic care is a holistic approach to health that focuses on musculoskeletal well-being and the body's innate ability to heal itself. In this exploration of chiropractic care, we delve into its non-invasive techniques, the role of specialized healthcare professionals, and the profound benefits it offers."
+          content="Chiropractic care is a holistic approach to health that focuses on
+          musculoskeletal well-being and the body's innate ability to heal
+          itself. In this exploration of chiropractic care, we delve into its
+          non-invasive techniques, the role of specialized healthcare
+          professionals, and the profound benefits it offers."
         />
         <meta property="og:type" content="website" />
         <link
@@ -114,25 +118,25 @@ const Post: React.FC<PostProps> = (props) => {
         <link
           rel="modulepreload"
           as="script"
-          crossorigin
+          crossOrigin="true"
           href="/_nuxt/entry.f44b8db3.js"
         />
         <link
           rel="modulepreload"
           as="script"
-          crossorigin
+          crossOrigin="true"
           href="/_nuxt/_slug_.112574ba.js"
         />
         <link
           rel="prefetch"
           as="script"
-          crossorigin
+          crossOrigin="true"
           href="/_nuxt/error-404.70c90608.js"
         />
         <link
           rel="prefetch"
           as="script"
-          crossorigin
+          crossOrigin="true"
           href="/_nuxt/error-500.b0b78a3b.js"
         />
       </Head>
