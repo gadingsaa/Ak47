@@ -82,25 +82,26 @@ const Post: React.FC<PostProps> = (props) => {
 
 	return (
 		<>
-			<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:image" content="https://www.terkini360.xyz/wp-content/uploads/2023/09/jpg_20230919_233444_0000.jpg">
+			<Head>
+
+				<meta property="og:image" content="https://www.terkini360.xyz/wp-content/uploads/2023/09/jpg_20230919_233444_0000.jpg">
 <meta property="og:image:url" content="https://www.terkini360.xyz/wp-content/uploads/2023/09/jpg_20230919_233444_0000.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:title" content="Hannah Palmmer">
-<meta property="og:url" content="https://www.terkini360.xyz/hannah-palmer/">
-<meta property="og:site_name" content="https://www.terkini360.xyz/">
-<meta property="og:type" content="website">
+		
+						<meta
+					property="og:image:alt"
+					content={post.featuredImage.node.altText || post.title}
+				/>
+	
+			</Head>
 			<div className="post-container">
 				
 				<img
 					src={post.featuredImage.node.sourceUrl}
 					alt={post.featuredImage.node.altText || post.title}
 				/>
-				
+				<article dangerouslySetInnerHTML={{ __html: post.content }} />
 			</div>
 		</>
 	);
