@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
-import { ParsedUrlQuery } from 'querystring';
+import { GetServerSideProps, ParsedUrlQuery } from 'next';
 import { PreviewData } from 'next/dist/next-server/server/api-utils';
 import { GraphQLClient, gql } from 'graphql-request';
 
