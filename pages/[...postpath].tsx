@@ -83,23 +83,18 @@ const Post: React.FC<PostProps> = (props) => {
 	return (
 		<>
 			<Head>
-
-				<meta property="og:image" content="https://www.terkini360.xyz/wp-content/uploads/2023/09/jpg_20230919_233444_0000.jpg">
-<meta property="og:image:url" content="https://www.terkini360.xyz/wp-content/uploads/2023/09/jpg_20230919_233444_0000.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-		
-						<meta
+				<meta property="og:image" content={featuredImage.node.sourceUrl} />
+				<meta
 					property="og:image:alt"
-					content={post.featuredImage.node.altText || post.title}
+					content={featuredImage.node.altText}
 				/>
-	
+			
 			</Head>
 			<div className="post-container">
-				
+		
 				<img
-					src={post.featuredImage.node.sourceUrl}
-					alt={post.featuredImage.node.altText || post.title}
+					src={featuredImage.node.sourceUrl}
+					alt={featuredImage.node.altText}
 				/>
 				<article dangerouslySetInnerHTML={{ __html: post.content }} />
 			</div>
